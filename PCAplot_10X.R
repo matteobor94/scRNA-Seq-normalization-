@@ -47,4 +47,34 @@ pareto<-plotPCA(sce_10x, colour_by="cell_line",
                 shape_by="demuxlet_cls")+ggtitle("Pareto norm")
 multiplot(raw_counts, scran, pareto, cols=3)
 
+#compare Pareto, DESeq and CLR normalizations
+#Pareto-norm already computed
+
+#DESeq
+cds<-newCountDataSet(counts(sce_10x), conditions = 1:ncol(sce_10x)) #one condition for each cellular sample
+cds<-DESeq::estimateSizeFactors(cds)
+mat <- counts(cds, normalized=TRUE)
+assay(sce_10x, "DESeq")<-mat
+
+#Centered Log-Ratio
+assay(sce_10x, "CLR")<-NormalizeData(counts(sce_10x),
+                                             margin<-2,
+                                             normalization:method<-"CLR")
+#PCAplot
+sce_10x<-runPCA(sce_10x, exprs_values="pareto")
+pareto<-scater::plotPCA(sce_10x, colour_by="cell_line",
+                shape_by="demuxlet_cls")+ggtitle("Pareto norm")
+sce_10x<-runPCA(sce_10x, exprs_values="CLR")
+clr<-scater::plotPCA(sce_10x, colour_by="cell_line",
+                shape_by="demuxlet_cls")+ggtitle("CLR norm")
+sce_10x<-runPCA(sce_10x, exprs_values="DESeq")
+DESeq<-scater::plotPCA(sce_10x, colour_by="cell_line",
+                shape_by="demuxlet_cls")+ggtitle("DESeq norm")
+
+multiplot(pareto, clr, DESeq, cols = 3)
+
+
+
+
+
 
