@@ -5,8 +5,8 @@ library(DT)
 library(Seurat)
 library(DESeq)
 
-load("C:/Users/Matteo/Desktop/Borsa studio/sincell_with_class.rdata")
-#3 diversi SingleCellExperiment con 3 differenti tecnologie, tutti ottenuti dopo la fase quality control
+load("C:/Users/Matteo/Desktop/Borsa studio/sincell_with_class.rdata") #my personal directory
+#datasets at https://github.com/LuyiTian/sc_mixology
 
 #rename datasets
 sce_10x<-sce_sc_10x_qc
