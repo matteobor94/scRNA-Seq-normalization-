@@ -6,7 +6,7 @@ library(SAVER)
 set_cellbench_threads(nthreads = 1)
 load("C:/Users/Matteo/Desktop/Borsa studio/sincell_with_class.rdata") #my personal directory
 load("C:/Users/Matteo/Desktop/Borsa studio/sincell_with_class_5cl.rdata")
-#the datasets are available at the link:
+#Datasets are available at the link:
 # https://github.com/LuyiTian/sc_mixology/tree/master/data
 datasets <- list(
   sc_CELseq2=sce_sc_CELseq2_qc,
