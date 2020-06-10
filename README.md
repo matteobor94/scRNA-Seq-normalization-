@@ -1,3 +1,3 @@
 # scRNA-Seq-normalization-
 
-The purpose of this repository is to compare different normalization methods for scRNA-Seq data. In my Master Thesis I proposed a new  method of normalization based on the Pareto distribution. This method normalizes the data matrix with the alpha parameter of the Pareto distribution fitted on every sample.    
+The purpose of this repository is to compare different normalization methods for scRNA-Seq data. In my Master Thesis I proposed a new  method of normalization based on the Pareto distribution. This method normalizes the data matrix with the alpha parameter of the Pareto distribution fitted on every sample. In the thesis I showed that Pareto normalization method normalizes properly the data matrix with lower computational costs than Scran normalization method. Now I want to increase the number of normalization methods to compare to produce a more complete analysis.   
